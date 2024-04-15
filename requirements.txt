@@ -1,0 +1,7 @@
+pdfplumber
+llama_index.llms.huggingface
+llama-index-vector-stores-faiss
+llama-index
+llama-index-llms-cohere
+llama-index-embeddings-cohere
+faiss-gpu
