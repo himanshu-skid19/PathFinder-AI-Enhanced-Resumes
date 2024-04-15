@@ -1,7 +1,9 @@
 # PathFinder-AI-Enhanced-Resumes
 Course Project for DA213
-
-
+## Group Members:
+**Himanshu Singhal** 
+**Rishita Agarwal**
+**Arushi Kumar**
 
 #### Prerequisites
 
