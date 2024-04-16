@@ -1,5 +1,11 @@
 from imports import *
 
+
+logging.basicConfig(level=logging.INFO)
+
+tokenizer = Anthropic().tokenizer
+Settings.tokenizer = tokenizer
+
 class LLMMetadata:
     def __init__(self, model_name, api_key, context_window=4096, num_output=256, is_chat_model=False):
         self.model_name = model_name
@@ -60,3 +66,6 @@ class HuggingFaceAPIAdapter(CustomLLM):
     def metadata(self):
         # Return an instance of LLMMetadata with the required details
         return LLMMetadata(model_name="google/gemma-7b", api_key="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")
+
+
+anthropic_llm = Anthropic(model="claude-3-sonnet-20240229")

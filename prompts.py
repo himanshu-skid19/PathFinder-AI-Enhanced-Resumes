@@ -17,7 +17,7 @@ def create_combined_prompt(similar_resumes, original_query):
     combined_prompt = f"Based on the following resumes:\n\n ! EXAMPLE RESUMES BEGINS ! {context} ! EXAMPLE RESUMES END ! \n\n{original_query}"
     return combined_prompt
 
-def query_with_context(combined_prompt):
+def query_with_context(combined_prompt, index, top_k = 2):
     """
     Query the engine with a combined prompt that includes context and the original query.
 
@@ -28,5 +28,6 @@ def query_with_context(combined_prompt):
     - str: The response from the query engine.
     """
     # Query the engine
+    query_engine = index.as_query_engine(similarity_top_k = top_k)
     response = query_engine.query(combined_prompt)
     return response
