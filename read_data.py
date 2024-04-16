@@ -84,30 +84,30 @@ def embed_text(model, text):
     return model.get_text_embedding(text)  # Example, adjust based on your model's method
 
 
-def extract_and_store_sections(pdf_path, embed_model, vector_store):
-    """
-    Extract text by sections from a PDF, create Document objects, and store in the vector store.
-    """
-    text = extract_text(pdf_path, laparams=LAParams(line_overlap=0.5))
-    section_headers = ["Education", "Research Experiences", "Industrial Experience", "Key Projects", 
-                       "Other Projects", "Achievements", "Technical Skills", "Relevant Coursework", 
-                       "Teaching Experience", "Leadership Positions", "Extracurriculars"]
-    pattern = '|'.join([f"({re.escape(header)})" for header in section_headers])
-    matches = list(re.finditer(pattern, text, re.IGNORECASE))
-    documents = []
+# def extract_and_store_sections(pdf_path, embed_model, vector_store):
+#     """
+#     Extract text by sections from a PDF, create Document objects, and store in the vector store.
+#     """
+#     text = extract_text(pdf_path, laparams=LAParams(line_overlap=0.5))
+#     section_headers = ["Education", "Research Experiences", "Industrial Experience", "Key Projects", 
+#                        "Other Projects", "Achievements", "Technical Skills", "Relevant Coursework", 
+#                        "Teaching Experience", "Leadership Positions", "Extracurriculars"]
+#     pattern = '|'.join([f"({re.escape(header)})" for header in section_headers])
+#     matches = list(re.finditer(pattern, text, re.IGNORECASE))
+#     documents = []
 
-    filename = os.path.basename(pdf_path)
-    for i in range(len(matches)):
-        start = matches[i].start()
-        end = matches[i+1].start() if i+1 < len(matches) else len(text)
-        section_title = text[matches[i].start():matches[i].end()].strip()
-        section_content = text[start:end].strip()
+#     filename = os.path.basename(pdf_path)
+#     for i in range(len(matches)):
+#         start = matches[i].start()
+#         end = matches[i+1].start() if i+1 < len(matches) else len(text)
+#         section_title = text[matches[i].start():matches[i].end()].strip()
+#         section_content = text[start:end].strip()
 
-        document = create_document(section_content, filename, section_title, embed_model)
-        documents.append(document)
-        logging.info(f"Stored {section_title} section from {filename}")
+#         document = create_document(section_content, filename, section_title, embed_model)
+#         documents.append(document)
+#         logging.info(f"Stored {section_title} section from {filename}")
 
-    return documents
+#     return documents
 
 def create_document(text, filename, category, embed_model):
     """
