@@ -93,54 +93,8 @@ is proposed to enhance data complexity and diversity, thereby enriching query se
 
 Note: if any key is missing from the user input, just ignore that.
 """
-PROJECTS_PROMPT = """
-You are going to write a JSON resume section for an applicant applying for job posts.
-
-Consider the following CV:
-<CV_TEXT>
-
-Now consider the following TypeScript Interface for the JSON schema:
-
-interface ProjectItem {
-    name: string;
-    startdate: string;
-    enddate: string;
-    type: string;
-    url: string;
-    description: string;
-}
-
-interface Projects {
-    projects: ProjectItem[];
-}
-
-Write the projects section according to the Projects schema. Include all projects, but only the ones present in the CV. On the response, include only the JSON.
-"""
 
 
-WORK_PROMPT = """
-You are going to write a JSON resume section for an applicant applying for job posts.
-
-Consider the following CV:
-<CV_TEXT>
-
-Now consider the following TypeScript Interface for the JSON schema:
-
-interface WorkItem {
-    company: string;
-    position: string;
-    startDate: string;
-    endDate: string;
-    location: string;
-    highlights: string[];
-}
-
-interface Work {
-    work: WorkItem[];
-}
-
-Write a work section for the candidate according to the Work schema. Include only the work experience and not the project experience. For each work experience, provide  a company name, position name, start and end date, and bullet point for the highlights. Follow the Harvard Extension School Resume guidelines and phrase the highlights with the STAR methodology
-"""
 
 
 def tailor_resume_anthropic(cv_text, prompt, model, retrieved_examples):
