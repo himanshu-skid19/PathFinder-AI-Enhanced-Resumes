@@ -12,3 +12,5 @@ llama-index-llms-anthropic
 llama-index-embeddings-langchain
 langchain
 sentence-transformers
+google-generativeai
+streamlit

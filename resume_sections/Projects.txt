@@ -1,0 +1,118 @@
+Projects
+
+Institute/Board
+Indian Institute of Technology, Guwahati
+Indian Institute of Technology, Guwahati
+CBSE Board
+CBSE Board
+
+CGPA/Percentage
+8.84 (Current)
+8.50 (Current)
+95.2%
+96.6%
+
+Year
+2021-Present
+2022-Present
+2021
+2019
+
+• Movie Database Application
+
+Dec. 2022 - Jan. 2023
+Github
+Personal Project
+– Developed a mobile application that lists the latest, trending, and top-rated films and TV shows, along with their
+
+title, release date, and description. It also allows users to search for their favourite shows and films.
+
+– The framework used for this is Flutter. It is connected to Firebase for authentication and uses TMBD API to
+
+fetch results.
+
+• Expense Tracker Application
+
+May. 2023 - Jun. 2023
+Personal Project
+Github
+– Developed a mobile application that tracks the income and expenses of a person and displays their list of transac-
+
+tions. It also displays daily, weekly, monthly, and yearly charts of spend analysis.
+
+– The framework used for this is Flutter. It uses Hive for local storage of data and syncfusion flutter charts for
+
+displaying spend analysis.
+
+• Inverse Matrix Calculator
+
+May. 2020 - July. 2020
+Github
+
+Personal Project
+– Developed a Python project that computes the determinant and inverse of 3x3 matrix using co-factors method.
+– It has UI elements from the Tkinter module for entry boxes, a calculate button and display of output/errors.
+
+Technical Skills
+
+• Programming: Python, C, C++
+• App Development: Flutter, Kotlin*
+• Database Management: MySQL, Firebase
+
+Key courses taken
+
+• Tools/Frameworks: OpenCV*
+• Operating Systems: Windows, Linux*
+• Miscellaneous: Verilog*
+
+* Elementary proficiency
+
+• Mathematics: Linear Algebra, Differential Equations, Complex Analysis, Probability & Random Processes
+• Computer Sciences: Data Structures and Algorithms, Theoretical Foundations of Computer Science
+• Electrical and Electronics: Digital Circuits, Signals and Systems, Control Systems
+• App Development: First Steps to Flutter
+Achievements
+
+• Rank 1, Engineering Physics, 1st Year B.Tech, and awarded Branch Change for Academic Excellence
+• Rank 480, out of 15261, CodeChef Starters 54 Div 4
+• 3rd Position, Spark Junior Conference, IIT Madras
+• JEE Advanced 2021: All India Rank 9034, out of 0.15 million students
+• AP EAPCET 2021: Rank 806, out of 0.16 million students
+• Top 1.5% Students All India, KVS, AISSE, Rank 20 out 4350 students in Andhra and Telangana
+Positions of Responsibility
+
+2022
+2022
+2020
+2021
+2021
+2019
+
+• Undergraduate Senator, Students’ Gymkhana Council, IIT Guwahati
+
+Mar. 2023 - ongoing
+
+– Elected as the Undergraduate Senator at Student Gymkhana Council which involves several committees that deal
+
+with the improvement of campus and represents the issues of students to the administration.
+
+• Academic Representative, Cepstrum, IIT Guwahati
+
+Aug. 2022 - July. 2023
+
+– Worked towards collecting academic resources for the current as well as upcoming batches.
+
+• Branch Representative, Engineering Physics, IIT Guwahati
+Extra-Curriculars
+
+Feb. 2022 - July. 2022
+
+• Mentor, Saathi Cell, IIT Guwahati - Mentoring five first-year B.Tech students.
+• 1st Position, Dvand, Inter-Hostel Debate Competition
+• Sr. Executive, Prayatna, IIT Guwahati’s Annual Socio-Welfare fest
+• Core Team Member, Social Service Club
+
+Jan. 2023 - Jun. 2023
+Sahyog 2022-23
+Feb. 2023
+Jan. 2023 - ongoing

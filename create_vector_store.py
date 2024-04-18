@@ -1,5 +1,4 @@
 from imports import *
-from keys import *
 from llm import *
 from app import *
 from read_data import *
@@ -69,7 +68,7 @@ def load_vector_store(persist_dir="./storage"):
 
     return index
 
-def query_vector_store(index, category, prompt, top_k=2):
+def query_vector_store(index, top_k=4):
     """
     Query the vector store through the query engine to find similar resumes.
 
@@ -99,7 +98,7 @@ def query_vector_store(index, category, prompt, top_k=2):
     
 
 
-    retrieval_prompt = f"for this {category}, search for documents which have information relevant to this category and fetch THEM only. Based on that answer the following {prompt}"
+    retrieval_prompt = f"Search for documents which have information relevant to this category and fetch THEM only."
     query_engine = index.as_query_engine(similarity_top_k = 1)
     response = query_engine.query(retrieval_prompt)
 

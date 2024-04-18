@@ -1,0 +1,220 @@
+
+\documentclass[a4paper,11pt]{article}
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{marvosym}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{cfr-lm}
+\usepackage[T1]{fontenc}
+\setlength{\multicolsep}{0pt} 
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\geometry{left=1.4cm, top=0.8cm, right=1.2cm, bottom=1cm}
+% Adjust margins
+%\addtolength{\oddsidemargin}{-0.5in}
+%\addtolength{\evensidemargin}{-0.5in}
+%\addtolength{\textwidth}{1in}
+\usepackage[most]{tcolorbox}
+\tcbset{
+	frame code={}
+	center title,
+	left=0pt,
+	right=0pt,
+	top=0pt,
+	bottom=0pt,
+	colback=gray!20,
+	colframe=white,
+	width=\dimexpr\textwidth\relax,
+	enlarge left by=-2mm,
+	boxsep=4pt,
+	arc=0pt,outer arc=0pt,
+}
+
+\newenvironment{educationtable}{
+  \begin{tabular}{lllr}
+  \toprule
+  \textbf{Degree/Certificate} & \textbf{Institute/Board} & \textbf{CGPA/Percentage} & \textbf{Year} \\
+  \midrule
+}{ 
+  \bottomrule
+  \end{tabular}
+}
+\usepackage{booktabs} % For professional looking tables
+
+
+\urlstyle{same}
+
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item{
+    \textbf{#1}{:\hspace{0.5mm}#2 \vspace{-0.5mm}}
+  }
+}
+
+\newcommand{\resumePOR}[3]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1},\hspace{0.3mm}#2 & \textit{\small{#3}} 
+    \end{tabular*}
+    \vspace{-2mm}
+}
+
+\newcommand{\resumeSubheading}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{#2} \\
+        \textit{#3} & {#4} \\
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeProject}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#3}} \\
+        \footnotesize{\textit{#2}} & \footnotesize{#4}
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+\newcommand{\resumeExperience}[5]{
+  \item
+    \textbf{#1} \hfill #4 \\
+    \textit{#2} \hfill \textit{#5} \\
+    #3
+}
+
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+% \renewcommand{\labelitemii}{$\circ$}
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=0mm]}
+\newcommand{\resumeHeadingSkillStart}{\begin{itemize}[leftmargin=*,itemsep=1.7mm, rightmargin=2ex]}
+\newcommand{\resumeItemListStart}{\begin{justify}\begin{itemize}[leftmargin=3ex, rightmargin=2ex, noitemsep,labelsep=1.2mm,itemsep=0mm]\small}
+
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{2mm}}
+\newcommand{\resumeHeadingSkillEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\end{justify}\vspace{-2mm}}
+\newcommand{\cvsection}[1]{%
+\vspace{2mm}
+\begin{tcolorbox}
+    \textbf{\large #1}
+\end{tcolorbox}
+    \vspace{-4mm}
+}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\newcolumntype{C}{>{\centering\arraybackslash}X}%
+%---- End of Packages and Functions ------
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%
+%%%%%% DEFINE ELEMENTS HERE %%%%%%%
+\newcommand{\name}{Himanshu Singhal} % Your Name
+\newcommand{\course}{DSAI} % Your Course
+\newcommand{\roll}{220150004} % Your Roll No.
+\newcommand{\phone}{08800182654} % Your Phone Number
+\newcommand{\email}{himanshusinghal2003@gmail.com} %Email 1
+\newcommand{\github}{rghaerhea}%Github
+\newcommand{\website}{tjhq46j} %Website
+\newcommand{\linkedin}{{linked}} %linkedin
+
+
+
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+%----------HEADING-----------------
+\parbox{2.35cm}{%
+
+\includegraphics[width=2cm,clip]{iitg_logo.jpg}
+
+}\parbox{\dimexpr\linewidth-2.8cm\relax}{
+\begin{tabularx}{\linewidth}{L r}
+  \textbf{\LARGE \name} & +91-\phone\\
+  {Roll No.:\roll} & \href{mailto:\email}{\email} \\
+  DSAI &  \href{https://github.com/\github}{Github} $|$ \href{\website}{Website}\\
+  {Indian Institute Of Technology, Guwahati} & \href{https://www.linkedin.com/in/\linkedin/}{linkedin.com/in/\linkedin}
+\end{tabularx}
+}
+
+
+
+%-----------EDUCATION-----------------
+\setlength{\tabcolsep}{5pt} % Default
+\section*{\large\textbf{EDUCATION}}
+\begin{tabularx}{\textwidth}{|X|X|X|X|}
+\hline
+\textbf{Degree/Certificate} & \textbf{Institute/Board} & \textbf{CGPA/Percentage} & \textbf{Years} \\
+\hline
+tehwaethae & CBSE & 99 & 4034 - 4636 \\
+\hline
+\end{tabularx}
+
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+\resumeSubHeadingListStart
+\resumeSubheading
+{ Devrev }{ 7685 - present }
+{ CEO }{NYC}
+\resumeItemListStart
+\item {fhbwnterlijoahb}
+\item {sartehbjaer}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+\vspace{-5.5mm}
+
+
+%-----------PROJECTS-----------------
+\section{Projects}\resumeSubHeadingListStart
+\resumeSubheading{haeth}{dafhaeth - thaaethj}{taejatejatr}
+{\href{trjrwytjraqj}{Github}}{jaetjhatejrya}
+\resumeSubHeadingListEnd
+
+
+
+%-----------TECHNICAL SKILLS-----------------
+\section{Skills}
+\begin{itemize}
+\item \textbf{thartej:} ethaethae, thaetrh, ateh, athatreh, aterha
+\end{itemize}
+
+
+
+%-----------ACHIEVEMENTS-----------------
+
+
+
+
+%-------------------------------------------
+\end{document}
+
+

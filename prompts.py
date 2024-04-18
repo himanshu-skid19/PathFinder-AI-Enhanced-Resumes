@@ -1,4 +1,6 @@
 from imports import *
+from app import *
+from create_vector_store import *
 
 def create_combined_prompt(similar_resumes, original_query):
     """
@@ -33,20 +35,20 @@ def query_with_context(combined_prompt, index, top_k = 2):
     return response
 
 
-SYSTEM_PROMPT = "You are a smart assistant to career advisors at the Indian Institute of Technology Guwahati. You will reply with JSON only."
+# SYSTEM_PROMPT = "You are a smart assistant to career advisors at the Indian Institute of Technology Guwahati. You will reply with JSON only."
 
 CV_TEXT_PLACEHOLDER = "<CV_TEXT>"
 
-SYSTEM_TAILORING = """
-You are a smart assistant to career advisors at the Indian Institute of Technology Guwahati. Your take is to rewrite
-resumes to be more brief and convincing according to the Resumes and Cover Letters guide.
-"""
 
-TAILORING_PROMPT = """
-Consider the following CV:
+
+SYSTEM_PROMPT = """
+You are a smart assistant to career advisors at the Indian Institute of Technology Guwahati. Your take is to rewrite
+resume content to be more brief and convincing according to the Resumes and Cover Letters guide.
+
+Consider the following text from a cv:
 <CV_TEXT>
 
-Your task is to rewrite the given CV. Follow these guidelines:
+Your task is to rewrite this based on the query provided by the user. You may follow these guidelines:
 - Be truthful and objective to the experience listed in the CV
 - Be specific rather than general
 - Rewrite job highlight items using STAR methodology (but do not mention STAR explicitly)
@@ -55,78 +57,42 @@ Your task is to rewrite the given CV. Follow these guidelines:
 - Articulate and don't be flowery
 - Prefer active voice over passive voice
 - Do not include a summary about the candidate
+- give your output as json only
 
-Improved CV:
+HERE ARE SOME EXAMPLES FOR YOUR REFERENCE
+<RETRIEVED EXAMPLES>
+
+ONLY GIVE THE JSON AS THE OUTPUT AND NOTHING ELSE
+This is the last message that the user sent and output he/she got:
+<HISTORY>
+Make sure you give your output with this as the new context
+
 """
 
-BASICS_PROMPT = """
-You are going to write a JSON resume section for an applicant applying for job posts.
+JSON_PROMPT = """
+<QUERY>
 
-Consider the following CV:
-<CV_TEXT>
+Give your output in json format.
 
-Now consider the following TypeScript Interface for the JSON schema:
+JSON_FORMAT EXAMPLE:
+  {
+    "project_name": "Devrev's AI Agent 007",
+    "project_type": "Inter IIT Tech Meet 12.0",
+    "start_date" : "Nov. 2023",
+    "end_date" : "Dec. 2023",
+    "project link" : "Github",
+    "description" : [
+      "Employed various innovative prompting techniques such as Few-Shot CoT, ReACT, and Decomposed Prompting
+to enhance the language model’s interpretability and problem-solving capabilities.",
+     "Explored and tested Self-Instruct methodologies for synthetic dataset creation",
+     "Drawing on Named Entity Recognition, the novel method Automated Generation Using Tuned Entities (AGUTE)
+is proposed to enhance data complexity and diversity, thereby enriching query sets."
+    ]
 
-interface Basics {
-    name: string;
-    email: string;
-    rollno: string;
-    degree: string;
-    phone: string;
-    iitg id: string;
-    github: string;
-    linkedin: string;
-}
+  }
 
-Write the basics section according to the Basic schema. On the response, include only the JSON.
+Note: if any key is missing from the user input, just ignore that.
 """
-
-
-EDUCATION_PROMPT = """
-You are going to write a JSON resume section for an applicant applying for job posts.
-
-Consider the following CV:
-<CV_TEXT>
-
-Now consider the following TypeScript Interface for the JSON schema:
-
-interface EducationItem {
-    degree: string;
-    institute: string;
-    CGPA: string[];
-    Year: string;
-    ongoing: bool;
-}
-
-interface Education {
-    education: EducationItem[];
-}
-
-
-Write the education section according to the Education schema. On the response, include only the JSON.
-"""
-
-AWARDS_PROMPT = """
-You are going to write a JSON resume section for an applicant applying for job posts.
-
-Consider the following CV:
-<CV_TEXT>
-
-Now consider the following TypeScript Interface for the JSON schema:
-
-interface AwardItem {
-    title: string;
-    year: string;
-    summary: string;
-}
-
-interface Awards {
-    awards: AwardItem[];
-}
-
-Write the awards section according to the Awards schema. Include only the awards section. On the response, include only the JSON.
-"""
-
 PROJECTS_PROMPT = """
 You are going to write a JSON resume section for an applicant applying for job posts.
 
@@ -151,30 +117,6 @@ interface Projects {
 Write the projects section according to the Projects schema. Include all projects, but only the ones present in the CV. On the response, include only the JSON.
 """
 
-
-SKILLS_PROMPT = """
-You are going to write a JSON resume section for an applicant applying for job posts.
-
-Consider the following CV:
-<CV_TEXT>
-
-type HardSkills = "Programming Languages" | "Tools" | "Frameworks" | "Computer Proficiency";
-type SoftSkills = "Team Work" | "Communication" | "Leadership" | "Problem Solving" | "Creativity";
-type OtherSkills = string;
-
-Now consider the following TypeScript Interface for the JSON schema:
-
-interface SkillItem {
-    name: HardSkills | SoftSkills | OtherSkills;
-    keywords: string[];
-}
-
-interface Skills {
-    skills: SkillItem[];
-}
-
-Write the skills section according to the Skills schema. Include only up to the top 4 skill names that are present in the CV and related with the education and work experience. On the response, include only the JSON.
-"""
 
 WORK_PROMPT = """
 You are going to write a JSON resume section for an applicant applying for job posts.
@@ -201,65 +143,24 @@ Write a work section for the candidate according to the Work schema. Include onl
 """
 
 
-def generate_json_resume(cv_text, api_key, model):
-    """Generate a JSON resume from a CV text"""
-    sections = []
+def tailor_resume_anthropic(cv_text, prompt, model, retrieved_examples):
+    filled_sys_prompt = SYSTEM_PROMPT.replace("<CV_TEXT>", cv_text)
+    filled_sys_prompt = filled_sys_prompt.replace("<RETRIEVED_EXAMPLES>", str(retrieved_examples))
+    final_prompt = JSON_PROMPT.replace("<QUERY>", prompt)
     client = anthropic.Client(api_key=os.environ["ANTHROPIC_API_KEY"])
 
-    for prompt in stqdm(
-        [
-            BASICS_PROMPT,
-            EDUCATION_PROMPT,
-            AWARDS_PROMPT,
-            PROJECTS_PROMPT,
-            SKILLS_PROMPT,
-            WORK_PROMPT,
-        ],
-        desc="This may take a while...",
-    ):
-        
-        
-        filled_prompt = prompt.replace(CV_TEXT_PLACEHOLDER, cv_text)
-        response = client.messages.create(
-            model=model,
-            messages=[
-                {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": filled_prompt},
-            ],
-        )
-
-        try:
-            answer = response.choices[0].message.content
-            answer = json.loads(answer)
-
-            if prompt == BASICS_PROMPT and "basics" not in answer:
-                answer = {"basics": answer}  # common mistake GPT makes
-
-            sections.append(answer)
-        except Exception as e:
-            print(e)
-
-    final_json = {}
-    for section in sections:
-        final_json.update(section)
-
-    return final_json
-
-
-def tailor_resume(cv_text, api_key, model):
-    filled_prompt = TAILORING_PROMPT.replace("<CV_TEXT>", cv_text)
-    client = anthropic.Client(api_key=os.environ["ANTHROPIC_API_KEY"])
 
     try:
         response = client.messages.create(
             model=model,
+            system = filled_sys_prompt,
             messages=[
-                {"role": "system", "content": SYSTEM_TAILORING},
-                {"role": "user", "content": filled_prompt},
+                {"role": "user", "content": final_prompt},
             ],
+            max_tokens = 2000
         )
 
-        answer = response.choices[0].message.content
+        answer = response
         return answer
     except Exception as e:
         print(e)
