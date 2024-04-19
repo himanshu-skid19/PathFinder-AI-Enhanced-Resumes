@@ -1,6 +1,4 @@
 from imports import *
-from llm import *
-from app import *
 from read_data import *
 
 
