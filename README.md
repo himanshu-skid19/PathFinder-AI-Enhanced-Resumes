@@ -111,4 +111,4 @@ Make sure the folder is named as "resumes".
 
 1. Himanshu Singhal - [@himanshu-skid19](https://github.com/himanshu-skid19)
 2. Rishita Agarwal - [@rishita3003](https://github.com/rishita3003)
-3. Arushi Kumar - [@ArushiKumar11]{https://github.com/ArushiKumar11} 
+3. Arushi Kumar - [@ArushiKumar11](https://github.com/ArushiKumar11)
