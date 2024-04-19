@@ -87,9 +87,6 @@ def chatbot_page():
         api_key = st.sidebar.text_input("Enter your API Key here:", type="password")
         os.environ["ANTHROPIC_API_KEY"] = api_key
     
-    elif selected_model == "gemma-7b":
-        api_key = st.sidebar.text_input("Enter your API Key here:", type="password")
-        os.environ["HF_TOKEN"] = api_key
 
     # Option to input resume text directly
     resume_text = st.sidebar.text_area("Enter your resume text here:", height=300)

@@ -1,5 +1,5 @@
 from imports import *
-
+from app import *
 
 def process_directory(directory_path, embed_model, vector_store):
     """

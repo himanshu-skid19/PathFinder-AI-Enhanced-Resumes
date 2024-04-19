@@ -1,9 +1,8 @@
 from imports import *
-
+from app import *
 
 logging.basicConfig(level=logging.INFO)
-
-
+os.environ["ANTHROPIC_API_KEY"] = "INSERT KEY HERE"
 tokenizer = Anthropic().tokenizer
 Settings.tokenizer = tokenizer
 

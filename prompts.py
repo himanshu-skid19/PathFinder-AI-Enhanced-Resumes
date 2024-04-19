@@ -1,6 +1,7 @@
 from imports import *
 from app import *
 from create_vector_store import *
+from llm import *
 
 def create_combined_prompt(similar_resumes, original_query):
     """
@@ -101,7 +102,7 @@ def tailor_resume_anthropic(cv_text, prompt, model, retrieved_examples):
     filled_sys_prompt = SYSTEM_PROMPT.replace("<CV_TEXT>", cv_text)
     filled_sys_prompt = filled_sys_prompt.replace("<RETRIEVED_EXAMPLES>", str(retrieved_examples))
     final_prompt = JSON_PROMPT.replace("<QUERY>", prompt)
-    client = anthropic.Client(api_key=os.environ["ANTHROPIC_API_KEY"])
+    client = anthropic.Client(api_key="insert key here")
 
 
     try:

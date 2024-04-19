@@ -1,0 +1,43 @@
+Key Projects
+
+Model Extraction Attack for Video Classification Models
+Silver Medal, Inter-IIT Tech Meet, 2022 (held at IIT Kharagpur)
+
+Mar 2022
+Final Report Link | GitHub Link
+
+• Developed Swin-T and MoViNet-A2 model extraction pipelines through synthetic query generation using image datasets.
+• Trained Temporal Segment Networks (TSNs) and EfficientNet-LSTM models in Greybox and Blackbox settings.
+• Used multiple stacked image sets to craft adversarial samples and performed class-based analysis to extract model
+
+parameters.
+
+Route Planning and Optimization with Volume Estimation for Last-Mile Deliveries
+Inter-IIT Tech Meet, 2023 (held at IIT Kanpur)
+
+Feb 2023
+GitHub link
+
+• Performed volumetric weight estimation of objects using a stereoscopic RGB Camera setup and developed an end-to-end
+
+physical system to measure the dimensions of the object with very low latency and ∼95% accuracy.
+
+• Used DNNs to classify the shape of the object and for background removal to estimate the pixel per metric ratio. Used
+
+similarity scaling and background averaging to predict accurate object height.
+
+• Optimized the last-mile-delivery problem by devising optimal rider routes, incorporating dynamic pickups and forming
+
+rider bags using 3-D Bin Packing heuristics. Improved scalability by using an iterative sweep clustering algorithm.
+
+NanoC Compiler
+Guide: Prof. Sukumar Nandi | Compilers Lab, IIT Guwahati
+
+May 2022
+GitHub Link
+
+• Developed a compiler for Nano-C, a subset language of C having essential features like I/O management, error-handling,
+
+and control statements using Lex, Bison, and C++.
+
+• Implemented generation of assembly language quads for the given code and an executable for the same.
