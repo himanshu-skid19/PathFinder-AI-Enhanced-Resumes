@@ -1,0 +1,24 @@
+experience for users and integrated
+JavaScript to create interactive features such as downloadable text transcripts, contributing to the application’s efficiency.
+
+• Check the Weather
+Personal Project
+– Developed a web app to retrieve weather data across multiple locations, requiring manual user input for location details.
+– Implemented the project utilizing ReactJS and Open Weather Map API, resulting in a highly user-friendly application that
+
+Aug 2022 - Oct 2022
+GitHub
+
+provides precise weather information based on user-entered locations.
+
+• AlgoSort Visualizer
+
+Dec 2022 - Jan 2023
+Personal Project
+GitHub
+– Created a user-friendly interface with HTML, CSS for algorithm selection, array customization and animation speed control.
+– Developed a front-end Web application to visualize various sorting algorithms. Implemented algorithms like Bubble Sort,
+
+Selection Sort, Insertion Sort, Quick Sort, Merge Sort and demonstrated phase-wise progress in the algorithms.
+
+• Other Notable

@@ -1,0 +1,42 @@
+Research Experiences
+
+Carnegie Mellon University, USA
+Research Intern under the supervision of Dr. Min Xu in Xu-Lab
+
+May 2022 - Ongoing
+Pittsburgh, USA (Remote)
+
+• Submitted our research paper to the CVPR 2024 conference, with an improvement of 1.36% over the state-of-the-art on
+
+the Weakly-Supervised Video Anomaly Detection task on the UCF-Crime and ShanghaiTech datasets.
+
+• Proposed a novel Temporal Aggregation Module which is based on Disentangled Cross Attention to aggregate the
+
+representations of multiple backbones and distil the knowledge using Bi-level Knowledge Distillation.
+
+Indian Institute of Technology, Guwahati
+Bachelor Thesis Project under Dr. John Jose & Prof. Sukumar Nandi in MARS Lab
+
+July 2023 - Ongoing
+Guwahati, India
+• Proposed a new Black Hole Router Attack threat model on Network-on-chip on the cache, processor and network levels.
+• Analyzing the impact on L1 and L2 cache misses and penalties, CPU-wise IPC values and average packet latency using
+
+the gem5 simulator, and coming up with possible detection and mitigation techniques for such attacks.
+
+Indian Institute of Technology, Guwahati
+Research Project under Dr. Arijit Sur in Multimedia Lab
+
+Nov 2023 - Ongoing
+Guwahati, India
+• Working on Adversarial Defense on 3D Human Pose Estimation models using Diffusion Models to implement a generator-
+discriminator-classifier training paradigm to train a robust downstream classifier against adversarial perturbations.
+
+University of New South Wales (Sydney) & CSIRO Australia
+Research Intern under Dr. Rohitash Chandra (UNSW) & Dr. SS Vasan (COVID-19 Science Leader, CSIRO)
+
+Nov 2021 - May 2022
+Sydney (Remote)
+
+• Extracted and visualized graph representation of Protein Structures of various virus strains of SARS-CoV-2.
+• Analyzed Node and Edge Centralities in the graph to correlate and predict significant mutations in the strains.
