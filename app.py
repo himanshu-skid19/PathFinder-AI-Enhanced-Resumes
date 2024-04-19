@@ -1,12 +1,12 @@
 from imports import *
 from read_data import *
 from create_vector_store import *
-from llm import *
 from prompts import *
 # Initialize the chatbot API adapter
 # chatbot = HuggingFaceAPIAdapter()
 
-chatbot = anthropic_llm
+
+
 def add_custom_css():
     st.markdown("""
         <style>
@@ -86,7 +86,13 @@ def chatbot_page():
     if selected_model.startswith("claude"):
         api_key = st.sidebar.text_input("Enter your API Key here:", type="password")
         os.environ["ANTHROPIC_API_KEY"] = api_key
-    
+        tokenizer = Anthropic().tokenizer
+        Settings.tokenizer = tokenizer
+
+        anthropic_llm = Anthropic(model="claude-3-sonnet-20240229")
+
+        Settings.llm = anthropic_llm
+            
 
     # Option to input resume text directly
     resume_text = st.sidebar.text_area("Enter your resume text here:", height=300)
