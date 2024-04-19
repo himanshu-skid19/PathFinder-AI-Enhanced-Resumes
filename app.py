@@ -106,11 +106,14 @@ def chatbot_page():
             directory_path = "resumes"  # Path where your PDFs/documents are stored
             index = create_vector_store(directory_path)
             print("Vector store created.")
+            st.session_state.retrieval = index
         st.sidebar.success("Text input received!")
+
+    
     
     st.write("Please describe the changes you would like to make")
     display_chat()
-    if 'examples' not in st.session_state:
+    if 'examples' not in st.session_state and "retrieval" in st.session_state:
         st.session_state.examples= query_vector_store(st.session_state.retrieval)
     # Input for text modifications
     user_input = st.text_input("Enter your request:", help="Describe any specific modifications or additions you need.", key="user_input")
